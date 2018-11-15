@@ -1,0 +1,24 @@
+// .coming {
+//   background: yellow;
+// }
+// .missed {
+//   background: red;
+// }
+
+// TODO cleanup styles
+
+.task {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #eee;
+  margin: 0.5em;
+  padding: 0.3em 0;
+  border-radius: 4px;
+
+  &:hover {
+    color: #607d8b;
+    background-color: #ddd;
+    left: 0.1em;
+  }
+}

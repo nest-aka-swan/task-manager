@@ -9,6 +9,8 @@ import { TASKS } from '../mock-tasks';
 })
 export class TaskManagerComponent implements OnInit {
   tasks = TASKS;
+  // TODO add selectedTask
+  // render different
 
   constructor() {}
 

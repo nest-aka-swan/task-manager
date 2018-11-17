@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Task } from '../task';
 
+// TODO https://www.npmjs.com/package/uuid
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',

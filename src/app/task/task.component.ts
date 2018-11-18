@@ -1,6 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Task } from '../task-manager/shared/task.model';
+import { Direction } from './shared/direction';
 
-import { Task } from '../task';
+/*
+- добавить новую задачу
+- отредактировать задачу
+- передвинуть задачу по списку
+- закрыть задачу
+- посмотреть задачу
+*/
 
 // TODO https://www.npmjs.com/package/uuid
 
@@ -11,6 +19,16 @@ import { Task } from '../task';
 })
 export class TaskComponent implements OnInit {
   @Input() task: Task;
+  @Output() move = new EventEmitter<{ task: Task; direction: Direction }>();
+  expanded = false;
+
+  onExpand() {
+    this.expanded = !this.expanded;
+  }
+
+  onMove(direction: Direction) {
+    this.move.emit({ task: this.task, direction });
+  }
 
   constructor() {}
 

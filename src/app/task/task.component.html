@@ -1,5 +1,10 @@
+<!-- TODO on hover show close, edit, move -->
+<!-- TODO style different by date -->
+
 <li class="task">
   <p>Headline: {{ task.headline }}</p>
-  <p>Description: {{ task.description }}</p>
+  <!-- TODO move onExpand to "view more" element -->
+  <p (click)="onExpand()">Description: {{ task.description }}</p>
   <p>Deadline: {{ task.deadline | date }}</p>
+  <button (click)="onMove('up')">Move up</button> <button (click)="onMove('down')">Move down</button>
 </li>

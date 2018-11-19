@@ -17,8 +17,16 @@
     background-color: red;
   }
 
+  .move {
+    display: none;
+  }
+
   &:hover {
     color: #607d8b;
     left: 0.1em;
+
+    .move {
+      display: inline-block;
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TASKS } from './shared/mock-tasks';
-import { Direction } from '../task/shared/direction';
+import { TASKS } from '../mock-tasks';
+import { MoveTaskEvent } from '../move-task-event';
 
 @Component({
   selector: 'app-task-manager',
@@ -11,10 +11,13 @@ import { Direction } from '../task/shared/direction';
 export class TaskManagerComponent implements OnInit {
   tasks = TASKS;
 
-  onMoved({ task: Task, direction: Direction }) {
-    // if task index is 0 then return
-    // if task index is length - 1 then return
-    this.tasks.findIndex();
+  onMoved(event: MoveTaskEvent) {
+    const index1 = this.tasks.findIndex(task => task.id === event.task.id);
+    const index2 = event.direction === 'up' ? index1 - 1 : index1 + 1;
+
+    const temp = this.tasks[index1];
+    this.tasks[index1] = this.tasks[index2];
+    this.tasks[index2] = temp;
   }
 
   constructor() {}

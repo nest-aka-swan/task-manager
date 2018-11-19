@@ -6,5 +6,6 @@
   <!-- TODO move onExpand to "view more" element -->
   <p (click)="onExpand()">Description: {{ task.description }}</p>
   <p>Deadline: {{ task.deadline | date }}</p>
-  <button (click)="onMove('up')">Move up</button> <button (click)="onMove('down')">Move down</button>
+  <button *ngIf="!first" (click)="onMove('up')">Move up</button>
+  <button *ngIf="!last" (click)="onMove('down')">Move down</button>
 </li>

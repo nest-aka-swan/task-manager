@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Task } from '../task-manager/shared/task.model';
-import { Direction } from './shared/direction';
+import { Task } from '../task';
+import { Direction } from '../direction';
+import { MoveTaskEvent } from '../move-task-event';
 
 /*
 - добавить новую задачу
@@ -19,7 +20,9 @@ import { Direction } from './shared/direction';
 })
 export class TaskComponent implements OnInit {
   @Input() task: Task;
-  @Output() move = new EventEmitter<{ task: Task; direction: Direction }>();
+  @Input() first: boolean;
+  @Input() last: boolean;
+  @Output() move = new EventEmitter<MoveTaskEvent>();
   expanded = false;
 
   onExpand() {

@@ -1,3 +1,9 @@
 <ul class="tasks">
-  <app-task *ngFor="let task of tasks" [task]="task" (move)="onMoved($event)"></app-task>
+  <app-task
+    *ngFor="let task of tasks; let first = first; let last = last"
+    [task]="task"
+    [first]="first"
+    [last]="last"
+    (move)="onMoved($event)"
+  ></app-task>
 </ul>

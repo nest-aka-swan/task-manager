@@ -33,7 +33,31 @@ export class TaskComponent implements OnInit {
     this.move.emit({ task: this.task, direction });
   }
 
+  getCssClasses() {
+    return {
+      coming: this.isDeadlineComing(),
+      passed: this.isDeadlinePassed(),
+    };
+  }
+
+  isDeadlineComing() {
+    const now = new Date();
+    const deadline = new Date(this.task.deadline);
+    const delta = deadline.getTime() - now.getTime();
+
+    return delta > 0 && delta < THREE_DAYS_IN_MILLISECONDS;
+  }
+
+  isDeadlinePassed() {
+    const now = new Date();
+    const deadline = new Date(this.task.deadline);
+
+    return now.getTime() > deadline.getTime();
+  }
+
   constructor() {}
 
   ngOnInit() {}
 }
+
+const THREE_DAYS_IN_MILLISECONDS = 259200000;

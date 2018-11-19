@@ -1,7 +1,7 @@
 <!-- TODO on hover show close, edit, move -->
 <!-- TODO style different by date -->
 
-<li class="task">
+<li class="task" [ngClass]="getCssClasses()">
   <p>Headline: {{ task.headline }}</p>
   <!-- TODO move onExpand to "view more" element -->
   <p (click)="onExpand()">Description: {{ task.description }}</p>

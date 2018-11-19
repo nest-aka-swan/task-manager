@@ -2,6 +2,13 @@ import { Task } from './task';
 
 export const TASKS: Task[] = [
   {
+    id: '9327ca28-05c1-474e-b67b-3571c322094c',
+    headline: 'mission-critical',
+    description:
+      'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.',
+    deadline: '2018-11-16T11:45:52Z',
+  },
+  {
     id: 'dd51ae0d-a913-4829-8108-55164d4ce8ac',
     headline: 'migration',
     description:
@@ -48,13 +55,6 @@ export const TASKS: Task[] = [
     description:
       'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.',
     deadline: '2018-11-18T15:58:05Z',
-  },
-  {
-    id: '9327ca28-05c1-474e-b67b-3571c322094c',
-    headline: 'mission-critical',
-    description:
-      'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.',
-    deadline: '2018-11-16T11:45:52Z',
   },
   {
     id: '6ce02984-96fd-42ce-b1a4-937bdfcc03b5',

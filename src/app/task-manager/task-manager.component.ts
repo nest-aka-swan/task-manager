@@ -9,9 +9,9 @@ import { TaskService } from '../task.service';
 // ✅ routing
 // ✅ service (CRUD)
 // ✅ edit
+// material datepicker, icons
 // form validation
 // fix styling
-// font awesome
 // bem
 
 @Component({

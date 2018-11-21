@@ -1,7 +1,12 @@
 <div *ngIf="task">
   <div>
     <label>Заголовок: <input [(ngModel)]="task.headline"/></label>
-    <label>Срок: <input [(ngModel)]="task.deadline"/></label>
+    <!-- <label>Срок: <input [(ngModel)]="task.deadline"/></label> -->
+    <mat-form-field>
+      <input [(ngModel)]="task.deadline" matInput [matDatepicker]="picker" readonly placeholder="Срок" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
     <label>Описание: <input [(ngModel)]="task.description"/></label>
   </div>
   <button (click)="handleSave()">Сохранить</button> <button (click)="goBack()">Назад</button>

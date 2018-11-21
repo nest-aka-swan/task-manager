@@ -1,6 +1,8 @@
 <div *ngIf="task">
-  <p>Headline: {{ task.headline }}</p>
-  <p>Deadline: {{ task.deadline | date }}</p>
-  <p>Description: {{ task.description }}</p>
-  <button (click)="goBack()">Go back</button>
+  <div>
+    <label>Заголовок: <input [(ngModel)]="task.headline"/></label>
+    <label>Срок: <input [(ngModel)]="task.deadline"/></label>
+    <label>Описание: <input [(ngModel)]="task.description"/></label>
+  </div>
+  <button (click)="handleSave()">Сохранить</button> <button (click)="goBack()">Назад</button>
 </div>

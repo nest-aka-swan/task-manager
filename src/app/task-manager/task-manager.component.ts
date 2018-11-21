@@ -8,6 +8,7 @@ import { TaskService } from '../task.service';
 // TODO
 // ✅ routing
 // ✅ service (CRUD)
+// ✅ edit
 // form validation
 // fix styling
 // font awesome

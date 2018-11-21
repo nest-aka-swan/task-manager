@@ -2,6 +2,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 import { FormTask } from '../form-task';
 
+// FIXME date picker
+// FIXME proper validation
+
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',

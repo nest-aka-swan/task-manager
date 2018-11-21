@@ -24,7 +24,9 @@ export class TaskComponent implements OnInit {
     this.taskService.getTask(id).subscribe(task => (this.task = task));
   }
 
-  goBack() {
-    this.location.back();
+  handleSave() {
+    this.taskService.updateTask(this.task).subscribe(this.goBack);
   }
+
+  goBack = () => this.location.back();
 }

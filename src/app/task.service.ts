@@ -38,8 +38,7 @@ export class TaskService {
   }
 
   updateTask(task: Task) {
-    this.http.put(this.tasksUrl, task, httpOptions).pipe(catchError(this.handleError));
-    // this.tasks = this.tasks.map(t => (t.id === task.id ? task : t));
+    return this.http.put(this.tasksUrl, task, httpOptions).pipe(catchError(this.handleError));
   }
 
   private handleError(e) {

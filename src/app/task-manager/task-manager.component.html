@@ -1,9 +1,11 @@
+<app-add-task (add)="handleAdd($event)"></app-add-task>
 <ul class="tasks">
   <app-task-list-item
     *ngFor="let task of tasks; let first = first; let last = last"
     [task]="task"
     [first]="first"
     [last]="last"
-    (move)="onMoved($event)"
+    (move)="handleMove(task, $event)"
+    (delete)="handleDelete(task)"
   ></app-task-list-item>
 </ul>

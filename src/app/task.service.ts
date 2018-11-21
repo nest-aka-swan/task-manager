@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Task } from './task';
@@ -20,35 +20,29 @@ export class TaskService {
   constructor(private http: HttpClient) {}
 
   getTasks() {
-    return this.http.get(this.tasksUrl).pipe(catchError(this.handleError<Task[]>('getTasks', [])));
+    return this.http.get<Task[]>(this.tasksUrl).pipe(catchError(this.handleError));
   }
 
   getTask(id: string) {
     const url = `${this.tasksUrl}/${id}`;
-    return this.http.get(url).pipe(catchError(this.handleError<Task>(`getTask id=${id}`)));
-    // return of(this.tasks.find(task => task.id === id));
+    return this.http.get<Task>(url).pipe(catchError(this.handleError));
   }
 
   addTask(task: Task) {
-    return this.http.post(this.tasksUrl, task, httpOptions).pipe(catchError(this.handleError<Task>('addTask')));
+    return this.http.post<Task>(this.tasksUrl, task, httpOptions).pipe(catchError(this.handleError));
   }
 
   deleteTask(task: Task) {
     const url = `${this.tasksUrl}/${task.id}`;
-    return this.http.delete(url, httpOptions).pipe(catchError(this.handleError<Task>('deleteTask')));
-    // this.tasks = this.tasks.filter(t => t.id !== task.id);
+    return this.http.delete(url, httpOptions).pipe(catchError(this.handleError));
   }
 
   updateTask(task: Task) {
-    this.http.put(this.tasksUrl, task, httpOptions).pipe(catchError(this.handleError<any>('updateTask')));
+    this.http.put(this.tasksUrl, task, httpOptions).pipe(catchError(this.handleError));
     // this.tasks = this.tasks.map(t => (t.id === task.id ? task : t));
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-
-      return of(result as T);
-    };
+  private handleError(e) {
+    return throwError(e);
   }
 }

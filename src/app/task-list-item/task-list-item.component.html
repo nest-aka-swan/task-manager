@@ -1,8 +1,9 @@
 <li class="task" [ngClass]="getCssClasses()">
   <a routerLink="/task/{{task.id}}">
-    <p>Headline: {{ task.headline }}</p>
-    <p>Deadline: {{ task.deadline | date }}</p>
-    <button class="move" *ngIf="!first" (click)="onMove('up')">Move up</button>
-    <button class="move" *ngIf="!last" (click)="onMove('down')">Move down</button>
+    <p>Заголовок: {{ task.headline }}</p>
+    <p>Срок: {{ task.deadline | date }}</p>
   </a>
+  <button class="move" *ngIf="!last" (click)="handleMove('down')">Вниз</button>
+  <button class="move" *ngIf="!first" (click)="handleMove('up')">Вверх</button>
+  <button (click)="handleDelete()">Удалить</button>
 </li>

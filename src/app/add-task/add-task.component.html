@@ -1,0 +1,16 @@
+<div>
+  <p>Добавить задачу</p>
+  <label>Заголовок: <input #headline/></label> <label>Срок: <input #deadline/></label>
+  <label>Описание: <input #description/></label>
+
+  <button
+    (click)="
+      handleAdd({ headline: headline.value, deadline: deadline.value, description: description.value });
+      headline.value = '';
+      deadline.value = '';
+      description.value = ''
+    "
+  >
+    Добавить
+  </button>
+</div>

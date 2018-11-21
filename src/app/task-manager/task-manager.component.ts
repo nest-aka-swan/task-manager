@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Task } from '../task';
-import { MoveTaskEvent } from '../move-task-event';
+import { FormTask } from '../form-task';
+import { MoveDirection } from '../move-direction';
 import { TaskService } from '../task.service';
 
 // TODO
 // ✅ routing
-// ~ service (CRUD)
-// ~ move in service?
+// ✅ service (CRUD)
+// form validation
 // fix styling
 // font awesome
 // bem
@@ -26,13 +27,23 @@ export class TaskManagerComponent implements OnInit {
     this.getTasks();
   }
 
-  onMoved(event: MoveTaskEvent) {
-    const index1 = this.tasks.findIndex(task => task.id === event.task.id);
-    const index2 = event.direction === 'up' ? index1 - 1 : index1 + 1;
+  handleMove(task: Task, direction: MoveDirection) {
+    const index1 = this.tasks.findIndex(t => t.id === task.id);
+    const index2 = direction === 'up' ? index1 - 1 : index1 + 1;
 
     const temp = this.tasks[index1];
     this.tasks[index1] = this.tasks[index2];
     this.tasks[index2] = temp;
+  }
+
+  handleAdd(task: FormTask) {
+    if (!(task.headline && task.deadline)) return;
+    this.taskService.addTask(task as Task).subscribe(task => this.tasks.push(task));
+  }
+
+  handleDelete(task: Task) {
+    this.tasks = this.tasks.filter(t => t.id !== task.id);
+    this.taskService.deleteTask(task).subscribe();
   }
 
   getTasks() {

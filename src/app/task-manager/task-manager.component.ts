@@ -6,10 +6,7 @@ import { MoveDirection } from '../move-direction';
 import { TaskService } from '../task.service';
 
 // TODO
-// ✅ routing
-// ✅ service (CRUD)
-// ✅ edit
-// material datepicker, icons
+// material icons
 // form validation
 // fix styling
 // bem

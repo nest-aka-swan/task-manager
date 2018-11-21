@@ -1,11 +1,6 @@
-<!-- TODO on hover show close, edit, move -->
-<!-- TODO style different by date -->
-
-<li class="task" [ngClass]="getCssClasses()">
+<div *ngIf="task">
   <p>Headline: {{ task.headline }}</p>
-  <!-- TODO move onExpand to "view more" element -->
-  <p (click)="onExpand()">Description: {{ task.description }}</p>
   <p>Deadline: {{ task.deadline | date }}</p>
-  <button class="move" *ngIf="!first" (click)="onMove('up')">Move up</button>
-  <button class="move" *ngIf="!last" (click)="onMove('down')">Move down</button>
-</li>
+  <p>Description: {{ task.description }}</p>
+  <button (click)="goBack()">Go back</button>
+</div>

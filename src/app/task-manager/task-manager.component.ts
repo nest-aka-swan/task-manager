@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TASKS } from '../mock-tasks';
+import { Task } from '../task';
 import { MoveTaskEvent } from '../move-task-event';
+import { TaskService } from '../task.service';
+
+// TODO
+// ✅ routing
+// ~ service (CRUD)
+// ~ move in service?
+// fix styling
+// font awesome
+// bem
 
 @Component({
   selector: 'app-task-manager',
@@ -9,7 +18,13 @@ import { MoveTaskEvent } from '../move-task-event';
   styleUrls: ['./task-manager.component.scss'],
 })
 export class TaskManagerComponent implements OnInit {
-  tasks = TASKS;
+  tasks: Task[];
+
+  constructor(private taskService: TaskService) {}
+
+  ngOnInit() {
+    this.getTasks();
+  }
 
   onMoved(event: MoveTaskEvent) {
     const index1 = this.tasks.findIndex(task => task.id === event.task.id);
@@ -20,7 +35,7 @@ export class TaskManagerComponent implements OnInit {
     this.tasks[index2] = temp;
   }
 
-  constructor() {}
-
-  ngOnInit() {}
+  getTasks() {
+    this.taskService.getTasks().subscribe(tasks => (this.tasks = tasks));
+  }
 }

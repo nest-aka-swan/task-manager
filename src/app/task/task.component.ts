@@ -1,17 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Task } from '../task';
-import { Direction } from '../direction';
-import { MoveTaskEvent } from '../move-task-event';
-
-/*
-- добавить новую задачу
-- отредактировать задачу
-- передвинуть задачу по списку
-- закрыть задачу
-- посмотреть задачу
-*/
-
-// TODO https://www.npmjs.com/package/uuid
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task',
@@ -19,45 +11,20 @@ import { MoveTaskEvent } from '../move-task-event';
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent implements OnInit {
-  @Input() task: Task;
-  @Input() first: boolean;
-  @Input() last: boolean;
-  @Output() move = new EventEmitter<MoveTaskEvent>();
-  expanded = false;
+  task: Task;
 
-  onExpand() {
-    this.expanded = !this.expanded;
+  constructor(private route: ActivatedRoute, private taskService: TaskService, private location: Location) {}
+
+  ngOnInit() {
+    this.getTask();
   }
 
-  onMove(direction: Direction) {
-    this.move.emit({ task: this.task, direction });
+  getTask() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.taskService.getTask(id).subscribe(task => (this.task = task));
   }
 
-  getCssClasses() {
-    return {
-      coming: this.isDeadlineComing(),
-      passed: this.isDeadlinePassed(),
-    };
+  goBack() {
+    this.location.back();
   }
-
-  isDeadlineComing() {
-    const now = new Date();
-    const deadline = new Date(this.task.deadline);
-    const delta = deadline.getTime() - now.getTime();
-
-    return delta > 0 && delta < THREE_DAYS_IN_MILLISECONDS;
-  }
-
-  isDeadlinePassed() {
-    const now = new Date();
-    const deadline = new Date(this.task.deadline);
-
-    return now.getTime() > deadline.getTime();
-  }
-
-  constructor() {}
-
-  ngOnInit() {}
 }
-
-const THREE_DAYS_IN_MILLISECONDS = 259200000;

@@ -1,4 +1,7 @@
-<!-- TODO go back icon button -->
-<button (click)="goBack()" mat-button>Назад</button>
-<app-task *ngIf="task" [(model)]="task" (submit)="handleSubmit($event)"></app-task>
-<!-- TODO else spinner -->
+<button (click)="goBack()" mat-icon-button><mat-icon aria-label="Назад">arrow_back</mat-icon></button>
+<div class="container">
+  <app-task *ngIf="task; else: loading" [(model)]="task" (submit)="handleSubmit($event)"></app-task>
+  <ng-template #loading><mat-spinner></mat-spinner></ng-template>
+</div>
+
+<!-- TODO animations -->

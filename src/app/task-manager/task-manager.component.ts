@@ -6,9 +6,11 @@ import { MoveDirection } from '../move-direction';
 import { TaskService } from '../task.service';
 
 // TODO
-// material icons
 // form validation
 // fix styling
+// width
+// merge add/edit components
+// spinner
 // bem
 // readme
 

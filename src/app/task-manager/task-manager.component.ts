@@ -6,11 +6,9 @@ import { TaskService } from '../task.service';
 
 // TODO
 // form validation
-// fix styling
-// width
-// merge add/edit components
-// spinner
+// list item style
 // bem
+// cleanup todos abd fixmes
 // readme
 
 @Component({

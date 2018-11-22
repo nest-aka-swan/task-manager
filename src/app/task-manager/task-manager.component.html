@@ -1,11 +1,13 @@
-<div class="container"><app-task (submit)="handleSubmit($event)"></app-task></div>
-<mat-nav-list>
-  <app-task-list-item
-    *ngFor="let task of tasks; let first = first; let last = last"
-    [task]="task"
-    [first]="first"
-    [last]="last"
-    (move)="handleMove(task, $event)"
-    (delete)="handleDelete(task)"
-  ></app-task-list-item>
-</mat-nav-list>
+<div class="container">
+  <app-task (submit)="handleSubmit($event)"></app-task>
+  <mat-nav-list>
+    <app-task-list-item
+      *ngFor="let task of tasks; let first = first; let last = last"
+      [task]="task"
+      [first]="first"
+      [last]="last"
+      (move)="handleMove(task, $event)"
+      (delete)="handleDelete(task)"
+    ></app-task-list-item>
+  </mat-nav-list>
+</div>

@@ -2,13 +2,11 @@
   width: 30%;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-.tasks {
-  width: 50%;
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
+  mat-nav-list {
+    width: 100%;
+  }
 }

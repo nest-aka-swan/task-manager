@@ -24,7 +24,7 @@ export class EditTaskComponent implements OnInit {
   }
 
   handleSubmit(task: Task) {
-    this.taskService.addTask(task).subscribe(() => this.goBack());
+    this.taskService.updateTask(task).subscribe(() => this.goBack());
   }
 
   goBack() {

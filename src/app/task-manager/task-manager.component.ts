@@ -6,9 +6,8 @@ import { TaskService } from '../task.service';
 
 // TODO
 // form validation
-// list item style
 // bem
-// cleanup todos abd fixmes
+// cleanup todos and fixmes
 // readme
 
 @Component({

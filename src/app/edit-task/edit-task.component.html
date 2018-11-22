@@ -1,0 +1,4 @@
+<!-- TODO go back icon button -->
+<button (click)="goBack()" mat-button>Назад</button>
+<app-task *ngIf="task" [(model)]="task" (submit)="handleSubmit($event)"></app-task>
+<!-- TODO else spinner -->

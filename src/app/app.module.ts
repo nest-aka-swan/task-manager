@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { InMemoryDataService } from './in-memory-data.service';
@@ -22,7 +22,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
     AppMaterialModule,
   ],
   providers: [],

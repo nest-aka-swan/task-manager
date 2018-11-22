@@ -1,6 +1,3 @@
 export class Task {
-  id: string;
-  headline: string;
-  description: string;
-  deadline: string;
+  constructor(public headline: string, public description: string, public deadline: string, public id?: string) {}
 }

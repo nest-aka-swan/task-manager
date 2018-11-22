@@ -1,15 +1,15 @@
-<form class="task-form" (ngSubmit)="handleSubmit()" #taskForm="ngForm">
+<form *ngIf="task" class="task-form" (ngSubmit)="handleSave()" #taskForm="ngForm">
   <mat-form-field>
-    <input [(ngModel)]="model.headline" name="headline" matInput placeholder="Заголовок" />
+    <input [(ngModel)]="task.headline" name="headline" matInput placeholder="Заголовок" />
   </mat-form-field>
   <mat-form-field>
-    <input [(ngModel)]="model.deadline" name="deadline" matInput [matDatepicker]="picker" readonly placeholder="Срок" />
+    <input [(ngModel)]="task.deadline" name="deadline" matInput [matDatepicker]="picker" readonly placeholder="Срок" />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <mat-form-field>
     <textarea
-      [(ngModel)]="model.description"
+      [(ngModel)]="task.description"
       name="description"
       matInput
       cdkTextareaAutosize
@@ -22,5 +22,6 @@
   <div class="task-form-buttons">
     <!-- TODO [disabled]="!taskForm.form.valid" -->
     <button type="submit" mat-button color="primary">Сохранить</button>
+    <button (click)="goBack()" mat-button>Назад</button>
   </div>
 </form>

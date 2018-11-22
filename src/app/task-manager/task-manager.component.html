@@ -1,4 +1,4 @@
-<app-add-task (add)="handleAdd($event)"></app-add-task>
+<app-task (submit)="handleSubmit($event)"></app-task>
 <mat-nav-list>
   <app-task-list-item
     *ngFor="let task of tasks; let first = first; let last = last"

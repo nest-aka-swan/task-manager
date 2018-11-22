@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Task } from '../task';
-import { FormTask } from '../form-task';
 import { MoveDirection } from '../move-direction';
 import { TaskService } from '../task.service';
 
@@ -37,9 +36,8 @@ export class TaskManagerComponent implements OnInit {
     this.tasks[index2] = temp;
   }
 
-  handleAdd(task: FormTask) {
-    if (!(task.headline && task.deadline)) return;
-    this.taskService.addTask(task as Task).subscribe(task => this.tasks.push(task));
+  handleSubmit(task: Task) {
+    this.taskService.addTask(task).subscribe(task => this.tasks.push(task));
   }
 
   handleDelete(task: Task) {

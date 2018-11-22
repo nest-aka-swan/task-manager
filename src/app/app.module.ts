@@ -11,11 +11,10 @@ import { AppComponent } from './app.component';
 import { TaskManagerComponent } from './task-manager/task-manager.component';
 import { TaskListItemComponent } from './task-list-item/task-list-item.component';
 import { TaskComponent } from './task/task.component';
-import { AddTaskComponent } from './add-task/add-task.component';
 import { AppMaterialModule } from './app-material.module';
 
 @NgModule({
-  declarations: [AppComponent, TaskManagerComponent, TaskListItemComponent, TaskComponent, AddTaskComponent],
+  declarations: [AppComponent, TaskManagerComponent, TaskListItemComponent, TaskComponent],
   imports: [
     BrowserModule,
     FormsModule,

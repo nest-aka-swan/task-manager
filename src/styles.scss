@@ -1,4 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/theming';
+@include mat-core();
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent);
+
+@import 'app/task-list-item/task-list-item.component.scss-theme';
+
+@mixin custom-components-theme($theme) {
+  @include app-task-list-item-component-theme($theme);
+}
+
+@include angular-material-theme($theme);
+@include custom-components-theme($theme);

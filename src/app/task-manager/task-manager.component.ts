@@ -10,6 +10,7 @@ import { TaskService } from '../task.service';
 // form validation
 // fix styling
 // bem
+// readme
 
 @Component({
   selector: 'app-task-manager',

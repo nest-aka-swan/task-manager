@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+
+@mixin app-task-list-item-component-theme($theme) {
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+
+  app-task-list-item {
+    mat-list-item {
+      &.passed a {
+        color: mat-color($warn);
+      }
+      &.coming a {
+        color: mat-color($primary);
+      }
+    }
+  }
+}

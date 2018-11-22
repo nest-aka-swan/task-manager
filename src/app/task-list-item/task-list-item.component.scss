@@ -1,30 +1,11 @@
-.task {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #eee;
-  margin: 0.5em;
-  padding: 0.3em 0;
-  border-radius: 4px;
+.headline,
+.deadline {
+  margin: 0;
+}
 
-  &.coming {
-    background-color: yellow;
-  }
-
-  &.passed {
-    background-color: red;
-  }
-
-  .move {
-    display: none;
-  }
-
-  &:hover {
-    color: #607d8b;
-    left: 0.1em;
-
-    .move {
-      display: inline-block;
-    }
+.buttons {
+  display: flex;
+  button[hidden] {
+    visibility: hidden;
   }
 }

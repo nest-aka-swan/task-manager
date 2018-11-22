@@ -1,9 +1,15 @@
-<li class="task" [ngClass]="getCssClasses()">
-  <a routerLink="/task/{{task.id}}">
-    <p>Заголовок: {{ task.headline }}</p>
-    <p>Срок: {{ task.deadline | date }}</p>
+<mat-list-item [ngClass]="getCssClasses()">
+  <a matLine routerLink="/task/{{task.id}}">
+    <h3 class="headline">{{ task.headline }}</h3>
+    <p class="deadline">{{ task.deadline | date }}</p>
   </a>
-  <button class="move" *ngIf="!last" (click)="handleMove('down')">Вниз</button>
-  <button class="move" *ngIf="!first" (click)="handleMove('up')">Вверх</button>
-  <button (click)="handleDelete()">Удалить</button>
-</li>
+  <div class="buttons">
+    <button mat-icon-button [hidden]="last" (click)="handleMove('down')">
+      <mat-icon aria-label="Вниз">arrow_downward</mat-icon>
+    </button>
+    <button mat-icon-button [hidden]="first" (click)="handleMove('up')">
+      <mat-icon aria-label="Вверх">arrow_upward</mat-icon>
+    </button>
+    <button mat-icon-button (click)="handleDelete()"><mat-icon aria-label="Удалить">delete</mat-icon></button>
+  </div>
+</mat-list-item>

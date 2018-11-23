@@ -4,12 +4,6 @@ import { Task } from '../task';
 import { MoveDirection } from '../move-direction';
 import { TaskService } from '../task.service';
 
-// TODO
-// bem
-// cleanup todos and fixmes
-// cleanup tests
-// readme
-
 @Component({
   selector: 'app-task-manager',
   templateUrl: './task-manager.component.html',

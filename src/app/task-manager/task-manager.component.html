@@ -1,5 +1,5 @@
 <div class="container">
-  <app-task (add)="handleAdd($event)"></app-task>
+  <app-task-form (add)="handleAdd($event)"></app-task-form>
   <mat-nav-list>
     <app-task-list-item
       *ngFor="let task of tasks; let first = first; let last = last"

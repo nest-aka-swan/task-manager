@@ -10,12 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskManagerComponent } from './task-manager/task-manager.component';
 import { TaskListItemComponent } from './task-list-item/task-list-item.component';
-import { TaskComponent } from './task/task.component';
+import { TaskFormComponent } from './task-form/task-form.component';
 import { AppMaterialModule } from './app-material.module';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskManagerComponent, TaskListItemComponent, TaskComponent, EditTaskComponent],
+  declarations: [AppComponent, TaskManagerComponent, TaskListItemComponent, TaskFormComponent, EditTaskComponent],
   imports: [
     BrowserModule,
     FormsModule,

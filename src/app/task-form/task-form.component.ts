@@ -4,11 +4,11 @@ import { NgForm } from '@angular/forms';
 import { Task } from '../task';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss'],
+  selector: 'app-task-form',
+  templateUrl: './task-form.component.html',
+  styleUrls: ['./task-form.component.scss'],
 })
-export class TaskComponent {
+export class TaskFormComponent {
   @Input() model = this.initModel();
   @Output() add = new EventEmitter<Task>();
 

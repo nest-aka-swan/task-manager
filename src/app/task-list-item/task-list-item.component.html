@@ -1,15 +1,17 @@
-<mat-list-item [ngClass]="getCssClasses()">
-  <a matLine routerLink="/task/{{task.id}}">
-    <h3 class="headline">{{ task.headline }}</h3>
-    <p class="deadline">{{ task.deadline | date }}</p>
+<mat-list-item class="task-list-item" [ngClass]="getCssClasses()">
+  <a class="task-list-item__text" matLine routerLink="/task/{{task.id}}">
+    <h3 class="task-list-item__headline">{{ task.headline }}</h3>
+    <p class="task-list-item__deadline">{{ task.deadline | date }}</p>
   </a>
-  <div class="buttons">
-    <button mat-icon-button [hidden]="last" (click)="handleMove('down')">
+  <div class="task-list-item__buttons">
+    <button class="task-list-item__button" mat-icon-button [hidden]="last" (click)="handleMove('down')">
       <mat-icon aria-label="Вниз">arrow_downward</mat-icon>
     </button>
-    <button mat-icon-button [hidden]="first" (click)="handleMove('up')">
+    <button class="task-list-item__button" mat-icon-button [hidden]="first" (click)="handleMove('up')">
       <mat-icon aria-label="Вверх">arrow_upward</mat-icon>
     </button>
-    <button mat-icon-button (click)="handleDelete()"><mat-icon aria-label="Удалить">delete</mat-icon></button>
+    <button class="task-list-item__button" mat-icon-button (click)="handleDelete()">
+      <mat-icon aria-label="Удалить">delete</mat-icon>
+    </button>
   </div>
 </mat-list-item>

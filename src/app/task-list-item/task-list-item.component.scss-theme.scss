@@ -5,12 +5,16 @@
   $foreground: map-get($theme, foreground);
 
   app-task-list-item {
-    mat-list-item {
-      &.passed a {
-        color: mat-color($warn);
+    .task-list-item {
+      &_deadline-passed {
+        .task-list-item__text {
+          color: mat-color($warn);
+        }
       }
-      &.coming a {
-        color: mat-color($primary);
+      &_deadline-coming {
+        .task-list-item__text {
+          color: mat-color($primary);
+        }
       }
     }
   }

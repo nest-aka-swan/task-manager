@@ -1,4 +1,4 @@
-<form (ngSubmit)="handleAdd(taskForm)" #taskForm="ngForm">
+<form class="task-form" (ngSubmit)="handleAdd(taskForm)" #taskForm="ngForm">
   <mat-form-field>
     <input [(ngModel)]="model.headline" name="headline" #headline="ngModel" required matInput placeholder="Заголовок" />
     <mat-error *ngIf="headline.invalid && (headline.dirty || headline.touched) && headline.errors.required"

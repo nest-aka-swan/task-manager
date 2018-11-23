@@ -1,11 +1,14 @@
-.headline,
-.deadline {
-  margin: 0;
-}
+.task-list-item {
+  &__headline,
+  &__deadline {
+    margin: 0;
+  }
 
-.buttons {
-  display: flex;
-  button[hidden] {
+  &__buttons {
+    display: flex;
+  }
+
+  &__button[hidden] {
     visibility: hidden;
   }
 }

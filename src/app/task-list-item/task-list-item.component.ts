@@ -24,8 +24,8 @@ export class TaskListItemComponent {
 
   getCssClasses() {
     return {
-      coming: this.isDeadlineComing(),
-      passed: this.isDeadlinePassed(),
+      'task-list-item_deadline-coming': this.isDeadlineComing(),
+      'task-list-item_deadline-passed': this.isDeadlinePassed(),
     };
   }
 

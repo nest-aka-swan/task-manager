@@ -18,7 +18,7 @@ export class EditTaskComponent implements OnInit {
     this.getTask();
   }
 
-  getTask() {
+  private getTask() {
     const id = this.route.snapshot.paramMap.get('id');
     this.taskService.getTask(id).subscribe(task => (this.task = task));
   }

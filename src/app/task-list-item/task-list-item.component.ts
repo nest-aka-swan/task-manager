@@ -29,7 +29,7 @@ export class TaskListItemComponent {
     };
   }
 
-  isDeadlineComing() {
+  private isDeadlineComing() {
     const now = new Date();
     const deadline = new Date(this.task.deadline);
     const delta = deadline.getTime() - now.getTime();
@@ -37,7 +37,7 @@ export class TaskListItemComponent {
     return delta > 0 && delta < THREE_DAYS_IN_MILLISECONDS;
   }
 
-  isDeadlinePassed() {
+  private isDeadlinePassed() {
     const now = new Date();
     const deadline = new Date(this.task.deadline);
 

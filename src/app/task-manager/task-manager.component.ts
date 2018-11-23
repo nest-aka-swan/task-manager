@@ -42,7 +42,7 @@ export class TaskManagerComponent implements OnInit {
     this.taskService.deleteTask(task).subscribe();
   }
 
-  getTasks() {
+  private getTasks() {
     this.taskService.getTasks().subscribe(tasks => (this.tasks = tasks));
   }
 }

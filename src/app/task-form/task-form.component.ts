@@ -18,7 +18,7 @@ export class TaskFormComponent {
     taskForm.resetForm();
   }
 
-  initModel() {
+  private initModel() {
     return new Task('', '', '');
   }
 }

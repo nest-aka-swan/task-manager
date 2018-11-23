@@ -23,7 +23,7 @@ export class EditTaskComponent implements OnInit {
     this.taskService.getTask(id).subscribe(task => (this.task = task));
   }
 
-  handleSubmit(task: Task) {
+  handleAdd(task: Task) {
     this.taskService.updateTask(task).subscribe(() => this.goBack());
   }
 

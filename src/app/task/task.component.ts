@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 import { Task } from '../task';
 
@@ -9,11 +10,12 @@ import { Task } from '../task';
 })
 export class TaskComponent {
   @Input() model = this.initModel();
-  @Output() submit = new EventEmitter<Task>();
+  @Output() add = new EventEmitter<Task>();
 
-  handleSubmit() {
-    this.submit.emit(this.model);
+  handleAdd(taskForm: NgForm) {
+    this.add.emit(this.model);
     this.model = this.initModel();
+    taskForm.resetForm();
   }
 
   initModel() {

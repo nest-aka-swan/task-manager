@@ -5,9 +5,9 @@ import { MoveDirection } from '../move-direction';
 import { TaskService } from '../task.service';
 
 // TODO
-// form validation
 // bem
 // cleanup todos and fixmes
+// cleanup tests
 // readme
 
 @Component({
@@ -33,7 +33,7 @@ export class TaskManagerComponent implements OnInit {
     this.tasks[index2] = temp;
   }
 
-  handleSubmit(task: Task) {
+  handleAdd(task: Task) {
     this.taskService.addTask(task).subscribe(task => this.tasks.push(task));
   }
 
